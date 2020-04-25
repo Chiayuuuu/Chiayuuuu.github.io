@@ -1,5 +1,4 @@
-extends views/index
+extends includes/layout
 
-block head
-  title
-    = config.title
+block mainContent
+	include includes/article-excerpt.pug

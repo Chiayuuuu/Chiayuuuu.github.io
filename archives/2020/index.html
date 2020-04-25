@@ -1,20 +1,5 @@
-extends views/main.pug
+extends includes/layout
 
-block head
-  title
-    = config.title
+block mainContent
+	include includes/post-archive
 
-block main
-  include mixins/post.pug
-  -var time
-  -site.posts.sort('date', 'desc').each(function(post) {
-    -var year = post.date.year()
-    -if (time != year) {
-      -if (time) {
-        h2.archive-title
-          = year
-      -}
-      -time = year
-    -}
-    +post(post, 'archive')
-  -})
